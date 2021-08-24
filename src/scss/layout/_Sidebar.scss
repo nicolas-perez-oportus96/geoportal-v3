@@ -1,0 +1,46 @@
+.sidebar {
+    overflow: auto;
+    .titulo {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        h1{
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin: 0;
+            padding: 0
+        }
+    }
+
+    .descargas {
+        display: flex;
+        justify-content:space-evenly;
+        margin-bottom: 15px;
+    }
+
+
+    .guia{
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+.lista {
+    li{
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    span {
+        margin-left: 5px;
+    }
+    i{
+        font-size: 15px;
+        margin-right: 5px;
+    }
+
+    i:hover{
+        color: rgb(86, 86, 136);
+    }
+}

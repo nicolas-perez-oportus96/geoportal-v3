@@ -1,13 +1,31 @@
 import React from "react";
-import "./styles.css";
-import Leaflet from "./components/Leaflet";
-import { FeatureProvider } from './components/FeatureContext'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Leaflet from "./components/map/Leaflet";
+
+import Home from './components/Home'
+import Header from './components/Header'
+
+import App1 from './components/app1/App1'
+
+
+
+import { FeatureProvider } from './FeatureContext'
 
 export default function App() {
   return (
-  <FeatureProvider>
+    <FeatureProvider>
 
-    <Leaflet />
+      <div className="App">
+        <Router>
+          <Header />
+          {/* <Redirect from='/' to="/home"/> */}
+          <Switch>
+            <Route path="/home" component={Home} />
+            <Route path="/app1" component={App1} />
+          </Switch>
+        </Router>
+      </div>
 
-  </FeatureProvider>)
+    </FeatureProvider>
+  );
 }

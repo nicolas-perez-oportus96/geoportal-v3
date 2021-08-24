@@ -1,0 +1,25 @@
+// Assets
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap');
+@import url('https://unpkg.com/leaflet@1.6.0/dist/leaflet.css');
+
+//Importando estilos modulares
+@import './layout/Buttons';
+@import './layout/Modal';
+@import './layout/Header';
+@import './layout/AppSelect';
+@import './layout/AppContainer';
+@import './layout/Sidebar';
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+}
