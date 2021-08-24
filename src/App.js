@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Header from './components/Header'
 
 import App1 from './components/app1/App1'
+import App2 from './components/app2/App2'
 
 
 
@@ -20,6 +21,7 @@ export default function App() {
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/app1" component={App1} />
+            <Route path="/app2" component={App2} />
           </Switch>
         </Router>
       </div>
