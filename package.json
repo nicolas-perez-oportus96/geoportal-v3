@@ -1,11 +1,13 @@
 {
-  "name": "add-zipped-shapefiles-to-a-react-leaflet-map",
+  "name": "Geoportal",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "@tippyjs/react": "^4.2.5",
+    "axios": "^0.21.1",
+    "js-file-download": "^0.4.12",
     "leaflet": "1.6.0",
     "react": "16.12.0",
     "react-accessible-accordion": "^3.3.5",

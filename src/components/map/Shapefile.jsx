@@ -26,7 +26,7 @@ function Shapefile({ zipUrl }) {
     shp(zipUrl).then(function (data) {
       geo.addData(data);
     });
-  }, []);
+  });
 
   return null;
 }

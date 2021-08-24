@@ -9,8 +9,21 @@ import { FeatureContext } from '../../FeatureContext'
 
 function Leaflet() {
   const mapRef = useRef();
-  const { feature } = useContext(FeatureContext);
+  const { feature, elaURL} = useContext(FeatureContext);
   const [ ,setFeatureValue] = feature;
+  const [ elaURLValue, setElaURLValue] = elaURL;
+
+  //funcion para añadir datos del poligono seleccionado al context.
+    async function getFeatureData(featureData) {
+        setFeatureValue(featureData);
+        getElaShape('AABR', featureData.COD_GLA)
+    }
+
+    async function getElaShape(method, codGla) {
+      const url = "http://34.121.165.39/app2/SHP/" + method + "/" + codGla + method + ".zip";
+      await setElaURLValue(url);
+      console.log(elaURLValue)
+  }
 
   useEffect(() => {
     const map = mapRef.current.leafletElement;
@@ -20,7 +33,7 @@ function Leaflet() {
   
 
   return (
-    <Map maxBounds={[[-35.494268, -70.735148], [-32.963408, -69.766694]]} zoom={8} minZoom={8} maxZoom={12} center={[-34.238347, -70.250921]} zoom={13} style={{ height: "100vh" }} crs={CRS.EPSG3857} ref={mapRef}>
+    <Map maxBounds={[[-35.494268, -70.735148], [-32.963408, -69.766694]]} zoom={8} minZoom={8} maxZoom={12} center={[-34.238347, -70.250921]} style={{ height: "100vh" }} crs={CRS.EPSG3857} ref={mapRef}>
       <LayersControl position="topright">
         {/* GRUPO DE CAPAS WORLD IMAGERY+ SHADERELIEF */}
         <LayersControl.BaseLayer checked name="HillShade" >
@@ -55,10 +68,9 @@ function Leaflet() {
           <TileLayer url="http://34.121.165.39/teselas/Label/{z}/{x}/{y}.png" tms={false} />
         </LayersControl.Overlay>
 
-
       </LayersControl>
 
-      <VectorTilesLayer url="http://34.121.165.39/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => console.log(e.layer.properties)} />
+      <VectorTilesLayer url="http://34.121.165.39/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => getFeatureData(e.layer.properties)} />
       
       <Shapefile zipUrl={zipUrl} />
     </Map>

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { FeatureContext } from '../../FeatureContext';
 import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, AccordionItemPanel } from 'react-accessible-accordion';
-// import axios from 'axios'
+import axios from 'axios'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
 import 'tippy.js/animations/shift-away.css';
@@ -12,33 +12,33 @@ export default function Sidebar() {
     const { feature } = useContext(FeatureContext);
     const [featureValue] = feature;
 
-    // // FUNCION PARA DESCARGAR REPORTE PDF
-    // async function getReporte(id) {
-    //     const FileDownload = require('js-file-download');
+    // FUNCION PARA DESCARGAR REPORTE PDF
+    async function getReporte(id) {
+        const FileDownload = require('js-file-download');
 
-    //     axios({
-    //         url: 'http://34.122.24.154/app1/pdf/_'+ id + '-.pdf',
-    //         method: 'GET',
-    //         responseType: 'blob', // Important
-    //     }).then((response) => {
-    //         FileDownload(response.data, id+'.pdf');
-    //     });
-    //     console.log("click")
-    // }
+        axios({
+            url: 'http://34.121.165.39/app1/pdf/_'+ id + '-.pdf',
+            method: 'GET',
+            responseType: 'blob', // Important
+        }).then((response) => {
+            FileDownload(response.data, id+'.pdf');
+        });
+        console.log("click")
+    }
 
-    // // FUNCION PARA DESCARGAR SHAPES
-    // async function getShape(id) {
-    //     const FileDownload = require('js-file-download');
+    // FUNCION PARA DESCARGAR SHAPES
+    async function getShape(id) {
+        const FileDownload = require('js-file-download');
 
-    //     axios({
-    //         url: 'http://34.122.24.154/app1/zip/'+ id + '.zip',
-    //         method: 'GET',
-    //         responseType: 'blob', // Important
-    //     }).then((response) => {
-    //         FileDownload(response.data, 'shape-'+id+'.zip');
-    //     });
-    //     console.log("click")
-    // }
+        axios({
+            url: 'http://34.121.165.39/app1/zip/'+ id + '.zip',
+            method: 'GET',
+            responseType: 'blob', // Important
+        }).then((response) => {
+            FileDownload(response.data, 'shape-'+id+'.zip');
+        });
+        console.log("click")
+    }
 
 
     // RENDERIZADO DEL SIDEBAR
@@ -51,8 +51,8 @@ export default function Sidebar() {
                 </div>
 
                 <div className="descargas">
-                    <button className="btn-reporte" onClick={ (e) => console.log(featureValue.COD_GLA) }><i class="far fa-file-pdf"></i>Descargar Reporte</button>
-                    <button className="btn-reporte" onClick={ (e) => console.log(featureValue.COD_GLA) }><i class="far fa-file-archive"></i>Descargar ShapeFile</button>
+                    <button className="btn-reporte" onClick={ (e) => getReporte(featureValue.COD_GLA) }><i class="far fa-file-pdf"></i>Descargar Reporte</button>
+                    <button className="btn-reporte" onClick={ (e) => getShape(featureValue.COD_GLA) }><i class="far fa-file-archive"></i>Descargar ShapeFile</button>
                 </div>
 
                 <Accordion allowZeroExpanded={true} preExpanded={['info']}>

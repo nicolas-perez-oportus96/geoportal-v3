@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Leaflet from "./components/map/Leaflet";
-
 import Home from './components/Home'
 import Header from './components/Header'
 
