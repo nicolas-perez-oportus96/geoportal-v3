@@ -9,27 +9,31 @@ import { FeatureContext } from '../../FeatureContext'
 function Leaflet() {
   const mapRef = useRef();
   const { feature, elaMethod, elaURL } = useContext(FeatureContext);
-  const [, setFeatureValue ] = feature;
-  const [ elaMethodValue] = elaMethod;
+  const [featureValue, setFeatureValue ] = feature;
+  const [ elaMethodValue, setElaMethodValue] = elaMethod;
   const [elaURLValue, setElaURLValue] = elaURL;
 
-  //funcion para añadir datos del poligono seleccionado al context.
+  // FUNCION PARA AÑADIR DATOS DEL GLACIAR SELECCIONADO AL CONTEXT
   async function getFeatureData(featureData) {
+    setElaMethodValue(null)
     setFeatureValue(featureData);
-    console.log(featureData.COD_GLA)
-    getElaShape('AABR', featureData.COD_GLA)
   }
 
-  async function getElaShape(method, codGla) {
+
+  // FUNCION PARA COMPONER URL DEL SHAPE CORRESPONDIENTE
+  async function getElaShapeURL(method, codGla) {
     const url = "http://34.121.165.39/app2/SHP/" + method + "/" + codGla + method + ".zip";
     await setElaURLValue(url);
-    console.log(elaURLValue)
   }
 
   useEffect(() => {
     const map = mapRef.current.leafletElement;
     map.setView([34.74161249883172, 18.6328125], 2);
   }, []);
+
+  useEffect(() => {
+    getElaShapeURL(elaMethodValue, featureValue.COD_GLA)
+  }, [elaMethodValue])
 
 
   return (
