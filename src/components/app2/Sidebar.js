@@ -10,16 +10,15 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 export default function Sidebar() {
 
     const { feature, elaMethod, elaFeature, elaURL } = useContext(FeatureContext);
-    const [featureValue, setFeatureValue ] = feature;
+    const [featureValue, ] = feature;
     const [elaMethodValue, setElaMethodValue] = elaMethod;
     const [elaFeatureValue,] = elaFeature;
-    const [elaURLValue, setElaURLValue] = elaURL;
+    const [elaURLValue, ] = elaURL;
 
     // FUNCION PARA DESCARGAR REPORTE PDF
     async function getReporte(id, method) {
         const FileDownload = require('js-file-download');
         const url = 'http://34.121.165.39/app2/PDF/' + method + '/_' + id + '-.pdf';
-        console.log(url)
         axios({
             url: url,
             method: 'GET',
@@ -27,14 +26,12 @@ export default function Sidebar() {
         }).then((response) => {
             FileDownload(response.data, id + method + '.pdf');
         });
-        console.log("click")
     }
 
     // FUNCION PARA DESCARGAR SHAPES
     async function getShape(id, method) {
         const FileDownload = require('js-file-download');
         const url = 'http://34.121.165.39/app2/SHP/' + method + '/' + id + method + '.zip';
-        console.log(url)
         axios({
             url: url,
             method: 'GET',
@@ -42,13 +39,11 @@ export default function Sidebar() {
         }).then((response) => {
             FileDownload(response.data, 'shape-' + id + method + '.zip');
         });
-        console.log("click")
     }
 
     // MANEJANDO SELECT 
     const handleChange = (value) => {
         setElaMethodValue(value)
-        console.log(elaMethodValue)
     }
 
     // RENDERIZADO DEL SIDEBAR

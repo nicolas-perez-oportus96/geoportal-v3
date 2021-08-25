@@ -26,10 +26,7 @@ function Leaflet() {
     await setElaURLValue(url);
   }
 
-  useEffect(() => {
-    const map = mapRef.current.leafletElement;
-    map.setView([34.74161249883172, 18.6328125], 2);
-  }, []);
+
 
   useEffect(() => {
     getElaShapeURL(elaMethodValue, featureValue.COD_GLA)
@@ -71,13 +68,15 @@ function Leaflet() {
           <TileLayer url="http://34.121.165.39/teselas/Label/{z}/{x}/{y}.png" tms={false} />
         </LayersControl.Overlay>
 
-      </LayersControl>
-
-      <VectorTilesLayer url="http://34.121.165.39/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => getFeatureData(e.layer.properties)} />
+        <VectorTilesLayer url="http://34.121.165.39/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => getFeatureData(e.layer.properties)} />
 
       { elaURL !== null  &&
         <Shapefile zipUrl={elaURLValue} elaMethod={elaMethodValue} />
       }
+
+      </LayersControl>
+
+      
     </Map>
   );
 }

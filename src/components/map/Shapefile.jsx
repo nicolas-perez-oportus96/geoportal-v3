@@ -13,7 +13,7 @@ function Shapefile({ zipUrl, elaMethod }) {
   const { map } = useLeaflet();
 
   //funcion para definir estilos
-  function elaStyle(ela){
+  function elaStyle(ela) {
     var style;
     if (ela === 'AA') {
       style = {
@@ -21,21 +21,21 @@ function Shapefile({ zipUrl, elaMethod }) {
         "weight": 5,
         "opacity": 0.65
       }
-    } 
+    }
     if (ela === 'AABR') {
-      style =  {
+      style = {
         "color": "#48ff00",
         "weight": 5,
         "opacity": 0.65
       }
-    } 
-    if (ela === 'AAR'){
+    }
+    if (ela === 'AAR') {
       style = {
         "color": "#0400ff",
         "weight": 5,
         "opacity": 0.65
       }
-    } 
+    }
     if (ela === 'MGE') {
       style = {
         "color": "#ea00ff",
@@ -48,6 +48,13 @@ function Shapefile({ zipUrl, elaMethod }) {
   }
 
   useEffect(() => {
+    map.eachLayer(function(layer) {
+      if (layer.feature) {
+        map.removeLayer(layer);
+      }
+    })
+
+
     const geo = L.geoJson({ features: [] }, {
       onEachFeature: function saveFeatureData(feature) {
         setElaFeatureValue(feature.properties);
