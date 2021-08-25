@@ -8,13 +8,15 @@ import { FeatureContext } from '../../FeatureContext'
 
 function Leaflet() {
   const mapRef = useRef();
-  const { feature, elaURL } = useContext(FeatureContext);
-  const [, setFeatureValue] = feature;
+  const { feature, elaMethod, elaURL } = useContext(FeatureContext);
+  const [, setFeatureValue ] = feature;
+  const [ elaMethodValue] = elaMethod;
   const [elaURLValue, setElaURLValue] = elaURL;
 
   //funcion para añadir datos del poligono seleccionado al context.
   async function getFeatureData(featureData) {
     setFeatureValue(featureData);
+    console.log(featureData.COD_GLA)
     getElaShape('AABR', featureData.COD_GLA)
   }
 
@@ -28,7 +30,6 @@ function Leaflet() {
     const map = mapRef.current.leafletElement;
     map.setView([34.74161249883172, 18.6328125], 2);
   }, []);
-
 
 
   return (
@@ -58,7 +59,6 @@ function Leaflet() {
           />
         </LayersControl.BaseLayer>
 
-
         <LayersControl.Overlay checked name="Area de Estudio">
           <TileLayer url="http://34.121.165.39/teselas/CBase/{z}/{x}/{y}.png" tms={false} />
         </LayersControl.Overlay>
@@ -71,11 +71,8 @@ function Leaflet() {
 
       <VectorTilesLayer url="http://34.121.165.39/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => getFeatureData(e.layer.properties)} />
 
-
-      {elaURL !== null &&
-      
-        <Shapefile zipUrl={elaURLValue} />
-
+      { elaURL !== null  &&
+        <Shapefile zipUrl={elaURLValue} elaMethod={elaMethodValue} />
       }
     </Map>
   );
