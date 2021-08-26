@@ -9,11 +9,10 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 
 export default function Sidebar() {
 
-    const { feature, elaMethod, elaFeature, elaURL } = useContext(FeatureContext);
+    const { feature, elaMethod, elaFeature, } = useContext(FeatureContext);
     const [featureValue,] = feature;
     const [elaMethodValue, setElaMethodValue] = elaMethod;
     const [elaFeatureValue,] = elaFeature;
-    const [elaURLValue,] = elaURL;
 
     // FUNCION PARA DESCARGAR REPORTE PDF
     async function getReporte(id, method) {
