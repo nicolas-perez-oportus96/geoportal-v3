@@ -55,7 +55,7 @@ export default function Sidebar() {
                     <button className="btn-reporte" onClick={ (e) => getShape(featureValue.COD_GLA) }><i class="far fa-file-archive"></i>Descargar ShapeFile</button>
                 </div>
                 <div className="descargas">
-                    <a href="https://mobble.dev/tesis/app1/ING_METADATOS.xml">Ver Metadatos</a>
+                    <a target="_blank" href="https://mobble.dev/tesis/app1/ING_METADATOS.xml">Ver Metadatos</a>
                 </div>
 
                 <Accordion allowZeroExpanded={true} preExpanded={['info']}>

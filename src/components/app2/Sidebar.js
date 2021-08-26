@@ -75,7 +75,7 @@ export default function Sidebar() {
                             </div>
 
                             <div className="descargas">
-                                <a href="https://mobble.dev/tesis/app2/ELA_METADA.xml">Ver Metadatos</a>
+                                <a target="_blank" href="https://mobble.dev/tesis/app2/ELA_METADA.xml">Ver Metadatos</a>
                             </div>
 
                         </div>
