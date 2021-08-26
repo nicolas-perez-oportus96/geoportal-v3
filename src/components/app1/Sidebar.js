@@ -17,7 +17,7 @@ export default function Sidebar() {
         const FileDownload = require('js-file-download');
 
         axios({
-            url: 'http://34.121.165.39/app1/pdf/_'+ id + '-.pdf',
+            url: 'https://34.121.165.39/app1/pdf/_'+ id + '-.pdf',
             method: 'GET',
             responseType: 'blob', // Important
         }).then((response) => {
@@ -31,7 +31,7 @@ export default function Sidebar() {
         const FileDownload = require('js-file-download');
 
         axios({
-            url: 'http://34.121.165.39/app1/zip/'+ id + '.zip',
+            url: 'https://34.121.165.39/app1/zip/'+ id + '.zip',
             method: 'GET',
             responseType: 'blob', // Important
         }).then((response) => {
@@ -55,7 +55,7 @@ export default function Sidebar() {
                     <button className="btn-reporte" onClick={ (e) => getShape(featureValue.COD_GLA) }><i class="far fa-file-archive"></i>Descargar ShapeFile</button>
                 </div>
                 <div className="descargas">
-                    <a href="http://34.121.165.39/app1/ING_METADATOS.xml">Ver Metadatos</a>
+                    <a href="https://34.121.165.39/app1/ING_METADATOS.xml">Ver Metadatos</a>
                 </div>
 
                 <Accordion allowZeroExpanded={true} preExpanded={['info']}>
