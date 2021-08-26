@@ -13,7 +13,7 @@ export default function Home() {
 
                 <div className="app-box app-box1">
                     <div className="titulo">
-                        <img src="/assets/App.svg" alt="app-icon"/>
+                        <img src="/assets/app-icon.svg" alt="app-icon"/>
                         <h2>Inventario Nacional de Glaciares</h2>
                     </div>
                     <div className="boton">
@@ -46,7 +46,7 @@ export default function Home() {
                 {/* Box Aplicacion 2 */}
                 <div className="app-box app-box2">
                     <div className="titulo">
-                        <img src="/assets/App.svg" alt="app-icon"/>
+                        <img src="/assets/app-icon.svg" alt="app-icon"/>
                         <h2>Linea de Tendencia Central</h2>
                     </div>
                     <div className="boton">
