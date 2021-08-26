@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Home from './components/Home'
 import Header from './components/Header'
 
@@ -17,7 +17,7 @@ export default function App() {
       <div className="App">
         <Router>
           <Header />
-          {/* <Redirect from='/' to="/home"/> */}
+          <Redirect from='/' to="/home"/>
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/app1" component={App1} />
