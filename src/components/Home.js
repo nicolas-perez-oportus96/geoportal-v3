@@ -76,16 +76,6 @@ export default function Home() {
                     </div>
                 </Modal>
 
-
-                <div className="app-box app-box3">
-                    <div className="titulo">
-                        <img src="/assets/App.svg" alt="app-icon"/>
-                        <h2>Aplicacion 3</h2>
-                    </div>
-                    <div className="boton">
-                        <Link className="button" to="/app3">Mas Información<img src="/assets/Arrow.svg" alt="arrow"></img> </Link>
-                    </div>
-                </div>
             </main>
     )
 }

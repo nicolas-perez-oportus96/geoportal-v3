@@ -221,12 +221,12 @@ header ul li a:hover {
   height: 94vh;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
   -ms-grid-rows: 50px 110px (70px)[2];
       grid-template-rows: 50px 110px repeat(2, 70px);
-      grid-template-areas: ". . . . ." ". . . . ." ". box1 box2 box3 ." ". box1 box2 box3 .";
-  grid-column-gap: 30px;
+      grid-template-areas: ". . . ." ". . . ." ". box1 box2  ." ". box1 box2  .";
+  grid-column-gap: 100px;
   grid-row-gap: 30px;
   background-color: white;
   font-family: 'Noto Sans', sans-serif;
@@ -472,6 +472,23 @@ header ul li a:hover {
 
 .lista i:hover {
   color: #565688;
+}
+
+.ela-select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ela-select span {
+  margin-bottom: 1rem;
 }
 
 * {

@@ -1,15 +1,15 @@
 .app-grid{
     height: 94vh;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows:50px 110px repeat(2, 70px);
     grid-template-areas: 
-        ". . . . ."
-        ". . . . ."
-        ". box1 box2 box3 ."
-        ". box1 box2 box3 .";
+        ". . . ."
+        ". . . ."
+        ". box1 box2  ."
+        ". box1 box2  .";
         
-    grid-column-gap: 30px;
+    grid-column-gap: 100px;
     grid-row-gap: 30px;
     background-color: rgb(255, 255, 255);
     font-family: 'Noto Sans', sans-serif;

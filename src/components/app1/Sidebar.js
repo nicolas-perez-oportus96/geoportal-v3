@@ -54,6 +54,9 @@ export default function Sidebar() {
                     <button className="btn-reporte" onClick={ (e) => getReporte(featureValue.COD_GLA) }><i class="far fa-file-pdf"></i>Descargar Reporte</button>
                     <button className="btn-reporte" onClick={ (e) => getShape(featureValue.COD_GLA) }><i class="far fa-file-archive"></i>Descargar ShapeFile</button>
                 </div>
+                <div className="descargas">
+                    <a href="http://34.121.165.39/app1/ING_METADATOS.xml">Ver Metadatos</a>
+                </div>
 
                 <Accordion allowZeroExpanded={true} preExpanded={['info']}>
 
@@ -592,6 +595,7 @@ export default function Sidebar() {
                     </AccordionItem>
     
                 </Accordion>
+                
             </div>
         )
     } else {

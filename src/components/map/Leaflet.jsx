@@ -15,6 +15,7 @@ function Leaflet() {
 
   // FUNCION PARA AÑADIR DATOS DEL GLACIAR SELECCIONADO AL CONTEXT
   async function getFeatureData(featureData) {
+    setElaURLValue(null)
     setElaMethodValue(null)
     setFeatureValue(featureData);
   }

@@ -10,10 +10,10 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 export default function Sidebar() {
 
     const { feature, elaMethod, elaFeature, elaURL } = useContext(FeatureContext);
-    const [featureValue, ] = feature;
+    const [featureValue,] = feature;
     const [elaMethodValue, setElaMethodValue] = elaMethod;
     const [elaFeatureValue,] = elaFeature;
-    const [elaURLValue, ] = elaURL;
+    const [elaURLValue,] = elaURL;
 
     // FUNCION PARA DESCARGAR REPORTE PDF
     async function getReporte(id, method) {
@@ -47,7 +47,7 @@ export default function Sidebar() {
     }
 
     // RENDERIZADO DEL SIDEBAR
-    if (Object.entries(featureValue).length !== 0 & elaURLValue !== null) {
+    if (Object.entries(featureValue).length !== 0) {
         return (
             <div className="sidebar">
 
@@ -57,8 +57,9 @@ export default function Sidebar() {
 
                 <div className="acciones">
                     <div className="ela-select">
+                        <span>Seleccione metodo de calculo de E.L.A</span>
                         <select name="ela" onChange={(e) => handleChange(e.target.value)} >
-                            <option value={null}>Seleccione un metodo de calculo</option>
+                            <option selected value={null}>Seleccione un metodo de calculo</option>
                             <option value="AA">AA</option>
                             <option value="AABR" >AABR</option>
                             <option value="AAR">AAR</option>
@@ -68,12 +69,17 @@ export default function Sidebar() {
 
                     {elaMethodValue !== null &&
 
-                        <div className="descargas">
+                        <div className="">
+                            <div className="descargas">
+                                <button className="btn-reporte" onClick={(e) => getReporte(elaFeatureValue.COD_GLA, elaMethodValue)}><i class="far fa-file-pdf"></i>Descargar Reporte</button>
+                                <button className="btn-reporte" onClick={(e) => getShape(elaFeatureValue.COD_GLA, elaMethodValue)}><i class="far fa-file-archive"></i>Descargar ShapeFile</button>
+                            </div>
 
-                            <button className="btn-reporte" onClick={(e) => getReporte(elaFeatureValue.COD_GLA, elaMethodValue)}><i class="far fa-file-pdf"></i>Descargar Reporte</button>
-                            <button className="btn-reporte" onClick={(e) => getShape(elaFeatureValue.COD_GLA, elaMethodValue)}><i class="far fa-file-archive"></i>Descargar ShapeFile</button>
+                            <div className="descargas">
+                                <a href="http://34.121.165.39/app2/ELA_METADA.xml">Ver Metadatos</a>
+                            </div>
+
                         </div>
-
                     }
                 </div>
 
