@@ -23,7 +23,7 @@ function Leaflet() {
 
   // FUNCION PARA COMPONER URL DEL SHAPE CORRESPONDIENTE
   async function getElaShapeURL(method, codGla) {
-    const url = "https://34.121.165.39/app2/SHP/" + method + "/" + codGla + method + ".zip";
+    const url = "https://mobble.dev/tesis/app2/SHP/" + method + "/" + codGla + method + ".zip";
     await setElaURLValue(url);
   }
 
@@ -62,14 +62,14 @@ function Leaflet() {
         </LayersControl.BaseLayer>
 
         <LayersControl.Overlay checked name="Area de Estudio">
-          <TileLayer url="https://34.121.165.39/teselas/CBase/{z}/{x}/{y}.png" tms={false} />
+          <TileLayer url="https://mobble.dev/tesis/teselas/CBase/{z}/{x}/{y}.png" tms={false} />
         </LayersControl.Overlay>
 
         <LayersControl.Overlay name="Etiquetas">
-          <TileLayer url="https://34.121.165.39/teselas/Label/{z}/{x}/{y}.png" tms={false} />
+          <TileLayer url="https://mobble.dev/tesis/teselas/Label/{z}/{x}/{y}.png" tms={false} />
         </LayersControl.Overlay>
 
-        <VectorTilesLayer url="https://34.121.165.39/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => getFeatureData(e.layer.properties)} />
+        <VectorTilesLayer url="https://mobble.dev/tesis/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => getFeatureData(e.layer.properties)} />
 
       { elaURL !== null  &&
         <Shapefile zipUrl={elaURLValue} elaMethod={elaMethodValue} />

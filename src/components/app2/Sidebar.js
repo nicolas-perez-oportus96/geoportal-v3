@@ -17,7 +17,7 @@ export default function Sidebar() {
     // FUNCION PARA DESCARGAR REPORTE PDF
     async function getReporte(id, method) {
         const FileDownload = require('js-file-download');
-        const url = 'https://34.121.165.39/app2/PDF/' + method + '/_' + id + '-.pdf';
+        const url = 'https://mobble.dev/tesis/app2/PDF/' + method + '/_' + id + '-.pdf';
         axios({
             url: url,
             method: 'GET',
@@ -30,7 +30,7 @@ export default function Sidebar() {
     // FUNCION PARA DESCARGAR SHAPES
     async function getShape(id, method) {
         const FileDownload = require('js-file-download');
-        const url = 'https://34.121.165.39/app2/SHP/' + method + '/' + id + method + '.zip';
+        const url = 'https://mobble.dev/tesis/app2/SHP/' + method + '/' + id + method + '.zip';
         axios({
             url: url,
             method: 'GET',
@@ -75,7 +75,7 @@ export default function Sidebar() {
                             </div>
 
                             <div className="descargas">
-                                <a href="https://34.121.165.39/app2/ELA_METADA.xml">Ver Metadatos</a>
+                                <a href="https://mobble.dev/tesis/app2/ELA_METADA.xml">Ver Metadatos</a>
                             </div>
 
                         </div>
