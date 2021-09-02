@@ -50,8 +50,11 @@ export default function Sidebar() {
         return (
             <div className="sidebar">
 
-                <div className="titulo">
-                    <h1>Información glaceológica</h1>
+                <div className="banner">
+                    <img src="/assets/app-icon.svg" alt="app-icon" />
+                    <div className="app-title">
+                        <h1>Aplicacion 2: <br /><span>Linea de Tendencia Central</span></h1>
+                    </div>
                 </div>
 
                 <div className="acciones">
@@ -75,7 +78,7 @@ export default function Sidebar() {
                             </div>
 
                             <div className="descargas">
-                                <a target="_blank" href="https://mobble.dev/tesis/app2/ELA_METADA.xml">Ver Metadatos</a>
+                                <a target="_blank" rel="noopener noreferrer" href="https://mobble.dev/tesis/app2/ELA_METADA.xml">Ver Metadatos</a>
                             </div>
 
                         </div>
@@ -483,12 +486,29 @@ export default function Sidebar() {
     } else {
         return (
             <div className="sidebar">
-                <div className="titulo">
-                    <h2>Instrucciones</h2>
+
+                <div className="banner">
+                    <img src="/assets/app-icon.svg" alt="app-icon" />
+                    <div className="app-title">
+                        <h1>Aplicacion 2: <br /><span>Linea de Tendencia Central</span></h1>
+                    </div>
                 </div>
-                <div className="guia">
-                    <p>Haz clic sobre un poligono para seleccionarlo y ver sus datos </p>
+
+                <div className="instrucciones">
+                    <div className="titulo">
+                        <h2>Instrucciones</h2>
+                    </div>
+                    <div className="guia">
+                        <ol>
+                            <li><span>Haga zoom hasta el nivel de visualización de los glaciares</span></li>
+                            <li><span>Seleccione un glaciar</span></li>
+                            <li><span>Seleccione un método de estimación para la línea de equilibrio glaciar (ELA)</span></li>
+                            <li><span>Puede visualizar sobre el mapa la ELA generada y sus atributos categorizados</span></li>
+                            <li><span>Puede generar un reporte con la información de atributos y descargar una capa lineal con la ELA generada</span></li>
+                        </ol>
+                    </div>
                 </div>
+
             </div>
         )
     }

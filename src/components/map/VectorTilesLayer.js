@@ -18,6 +18,10 @@ export default function VectorTilesLayer(props) {
             fill: true,
             fillColor: '#39d2ff',
             fillOpacity: 0.5,
+            activeStyle: {
+                fillColor: '#390870',
+                fillOpacity: 1
+            },
         },
         ING_Valle: {
             stroke: true,
@@ -29,6 +33,10 @@ export default function VectorTilesLayer(props) {
             fill: true,
             fillColor: '#39ecbc',
             fillOpacity: 0.5,
+            activeStyle: {
+                fillColor: '#390870',
+                fillOpacity: 1
+            },
         },
         ING_Rocoso: {
             stroke: true,
@@ -40,6 +48,10 @@ export default function VectorTilesLayer(props) {
             fill: true,
             fillColor: '#ffd501',
             fillOpacity: 0.5,
+            activeStyle: {
+                fillColor: '#390870',
+                fillOpacity: 1
+            },
         },
         ING_Glaciarete: {
             stroke: true,
@@ -51,7 +63,12 @@ export default function VectorTilesLayer(props) {
             fill: true,
             fillColor: '#ac11ff',
             fillOpacity: 0.5,
-        }
+            activeStyle: {
+                fillColor: '#390870',
+                fillOpacity: 1
+            },
+        },
+        
     };
 
     //opciones VectorGrid
@@ -64,16 +81,14 @@ export default function VectorTilesLayer(props) {
         url: props.url,
         vectorTileLayerStyles: vectorStyles,
         subdomains: "abcd",
-        key: "abcdefghi01234567890",
+        key: "17723",
         interactive: true,
         zIndex: 401
     };
 
     const VectorGrid = withLeaflet(VectorGridDefault);
 
-
     return (
         <VectorGrid {...options}  onClick={ (e) => {props.clickHandler(e)}  } />
     )
-
 }

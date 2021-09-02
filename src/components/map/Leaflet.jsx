@@ -4,14 +4,16 @@ import "leaflet/dist/leaflet.css";
 import { CRS } from 'leaflet';
 import Shapefile from "./Shapefile";
 import VectorTilesLayer from "./VectorTilesLayer";
-import { FeatureContext } from '../../FeatureContext'
+import { FeatureContext } from '../../FeatureContext';
+import { BingLayer } from 'react-leaflet-bing';
 
 function Leaflet() {
   const mapRef = useRef();
   const { feature, elaMethod, elaURL } = useContext(FeatureContext);
-  const [featureValue, setFeatureValue ] = feature;
-  const [ elaMethodValue, setElaMethodValue] = elaMethod;
+  const [featureValue, setFeatureValue] = feature;
+  const [elaMethodValue, setElaMethodValue] = elaMethod;
   const [elaURLValue, setElaURLValue] = elaURL;
+  const bing_key = "ArSPuxaxB8bp-VtsbY3jIUaocR9WLqKRM5X1rhjQLHHwolRjr5oAoUZ436gUVrvM"
 
   // FUNCION PARA AÑADIR DATOS DEL GLACIAR SELECCIONADO AL CONTEXT
   async function getFeatureData(featureData) {
@@ -35,8 +37,8 @@ function Leaflet() {
 
 
   return (
-    <Map maxBounds={[[-35.494268, -70.735148], [-32.963408, -69.766694]]} zoom={8} minZoom={8} maxZoom={12} center={[-34.238347, -70.250921]} style={{ height: "100vh" }} crs={CRS.EPSG3857} ref={mapRef}>
-      <LayersControl position="topright">
+    <Map maxBounds={[[-35.494268, -70.735148], [-32.963408, -69.766694]]} zoom={8} minZoom={8} maxZoom={13} center={[-34.238347, -70.250921]} style={{ height: "100vh" }} crs={CRS.EPSG3857} ref={mapRef}>
+      <LayersControl collapsed={false} position="topright">
         {/* GRUPO DE CAPAS WORLD IMAGERY+ SHADERELIEF */}
         <LayersControl.BaseLayer checked name="HillShade" >
           <LayerGroup>
@@ -61,23 +63,30 @@ function Leaflet() {
           />
         </LayersControl.BaseLayer>
 
-        <LayersControl.Overlay checked name="Area de Estudio">
-          <TileLayer url="https://mobble.dev/tesis/teselas/CBase/{z}/{x}/{y}.png" tms={false} />
-        </LayersControl.Overlay>
-
-        <LayersControl.Overlay name="Etiquetas">
-          <TileLayer url="https://mobble.dev/tesis/teselas/Label/{z}/{x}/{y}.png" tms={false} />
-        </LayersControl.Overlay>
-
-        <VectorTilesLayer url="https://mobble.dev/tesis/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => getFeatureData(e.layer.properties)} />
-
-      { elaURL !== null  &&
-        <Shapefile zipUrl={elaURLValue} elaMethod={elaMethodValue} />
-      }
+        {/* BingMapsLayer */}
+        <LayersControl.BaseLayer name="Bing Maps Satellite">
+          <BingLayer bingkey={bing_key} />
+        </LayersControl.BaseLayer>
 
       </LayersControl>
 
-      
+      {/* capa base */}
+      <TileLayer url="https://mobble.dev/tesis/teselas/CBase3/{z}/{x}/{y}.png" zIndex={5000} tms={false}/>
+
+      {/* glaciares */}
+      <VectorTilesLayer url="https://mobble.dev/tesis/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => getFeatureData(e.layer.properties)} />
+
+
+      {elaURL !== null &&
+        // ELA
+        <Shapefile zipUrl={elaURLValue} elaMethod={elaMethodValue} />
+
+      }
+
+      {/* etiquetas */}
+      <TileLayer url="https://mobble.dev/tesis/teselas/Label5/{z}/{x}/{y}.png" tms={false} zIndex={5004}/>
+
+
     </Map>
   );
 }

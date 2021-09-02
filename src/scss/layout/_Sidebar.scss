@@ -1,46 +1,98 @@
 .sidebar {
     overflow: auto;
+
+    .banner {
+        background-color: rgb(79, 79, 143);
+        color: white;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        padding: 4px 0;
+        height: 5rem;
+
+        img {
+            width: 70px;
+            margin: 0 10px;
+        }
+
+        .app-title {
+            h1 {
+                font-size: 14px;
+            }
+
+            span {
+                font-size: 13px;
+                font-weight: 200;
+            }
+        }
+    }
+
     .titulo {
         display: flex;
         justify-content: center;
         margin-top: 20px;
-        h1{
+        h1 {
             font-weight: 300;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             margin: 0;
-            padding: 0
+            padding: 0;
+            font-size: 20px;
         }
     }
 
     .descargas {
         display: flex;
-        justify-content:space-evenly;
+        justify-content: space-evenly;
         margin-bottom: 15px;
     }
 
-
-    .guia{
-        padding: 10px;
-        text-align: center;
+    .guia {
+        ol {
+            padding: 20px;
+            font-size: 14px;
+            color: rgb(59, 58, 58);
+            list-style: none;
+            counter-reset: item;
+            li {
+                counter-increment: item;
+                margin-bottom: 2rem;
+            }
+            li:before {
+                margin-right: 10px;
+                content: counter(item);
+                background: #4F4F8F;
+                border-radius: 100%;
+                color: white;
+                width: 1.1rem;
+                text-align: center;
+                display: inline-block;
+            }
+        }
     }
 }
 
+.acordion{
+    font-size: 10px;
+}
+
 .lista {
-    li{
+    li {
         display: flex;
         align-items: center;
         margin-bottom: 5px;
+        font-size: 12px;
     }
 
     span {
         margin-left: 5px;
+        font-weight: 300;
     }
-    i{
+    i {
         font-size: 15px;
         margin-right: 5px;
     }
 
-    i:hover{
+    i:hover {
         color: rgb(86, 86, 136);
     }
 }
