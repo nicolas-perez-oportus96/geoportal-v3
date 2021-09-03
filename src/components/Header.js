@@ -10,8 +10,8 @@ export default class Header extends Component {
                     <img src="/assets/udec.png" alt=""/>
                 </div>
                 <div className="titulo">
-                    <h1>Plataforma de información glaciológica de Chile central</h1>
-                    <p>Mountain GeoScience Group - Universidad de Concepción</p>
+                    <h1>Plataforma de Información Glaciológica de Chile Central</h1>
+                    <p>Universidad de Concepción - Mountain GeoScience Group</p>
                 </div>
 
                 <div className="logo-udec">

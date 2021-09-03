@@ -217,22 +217,161 @@ header ul li a:hover {
   color: black;
 }
 
-.app-grid {
-  height: 94vh;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
-  -ms-grid-rows: 50px 110px (70px)[2];
-      grid-template-rows: 50px 110px repeat(2, 70px);
-      grid-template-areas: ". . . ." ". . . ." ". box1 box2  ." ". box1 box2  .";
-  grid-column-gap: 100px;
-  grid-row-gap: 30px;
-  background-color: white;
-  font-family: 'Noto Sans', sans-serif;
+.hero {
+  height: 100vh;
+  background: url("/assets/back2.jpg") no-repeat;
+  background-size: cover;
+  background-position: top;
 }
 
-.app-grid .titulo {
+.hero .flag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 1rem;
+}
+
+.hero .flag .logo-udec img {
+  height: 100px;
+}
+
+.hero .titulo {
+  color: white;
+  padding-top: 10rem;
+}
+
+.hero .titulo h1 {
+  font-size: 35px;
+}
+
+.hero .titulo p {
+  font-size: 15px;
+  padding-top: 20px;
+}
+
+.hero .scroll {
+  color: white;
+  padding-top: 30rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero .scroll i {
+  font-size: 40px;
+  margin-right: 20px;
+}
+
+.encuesta-section {
+  background-color: #14C8CE;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem 1rem;
+}
+
+.encuesta-section .contenido {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.info {
+  padding: 120px 0;
+}
+
+.info .titulo {
+  padding-bottom: 10px;
+}
+
+.info .informacion {
+  margin-bottom: 3rem;
+  line-height: 40px;
+  font-size: 20px;
+}
+
+.info .informacion p {
+  padding-bottom: 20px;
+}
+
+.info .informacion span {
+  font-weight: 600;
+}
+
+.info .points span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.info .points ul {
+  list-style-type: none;
+}
+
+.info .points ul li {
+  margin-top: 30px;
+  border: solid 1px;
+  border-radius: 10px;
+  padding: 2rem;
+  font-size: 18px;
+  color: #313131;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.info .points ul li img {
+  width: 100px;
+  margin-right: 20px;
+  border-right: 1px solid gray;
+  padding-right: 20px;
+}
+
+.app-section {
+  background-color: #945406;
+  padding: 60px 0;
+}
+
+.app-section .indicacion {
+  margin-bottom: 50px;
+  color: white;
+}
+
+.app-section .indicacion h1 {
+  padding-bottom: 5px;
+}
+
+.app-section .apps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.app-section .apps .titulo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -245,13 +384,13 @@ header ul li a:hover {
   color: black;
 }
 
-.app-grid .titulo img {
+.app-section .apps .titulo img {
   width: 50px;
   height: 50px;
   margin-right: 20px;
 }
 
-.app-grid .app-box {
+.app-section .apps .app-box {
   border-radius: 10px;
   padding: 20px;
   -webkit-box-shadow: 6px 6px 15px -3px rgba(0, 0, 0, 0.45);
@@ -270,7 +409,7 @@ header ul li a:hover {
   color: white;
 }
 
-.app-grid .app-box .titulo {
+.app-section .apps .app-box .titulo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -282,42 +421,20 @@ header ul li a:hover {
           align-items: center;
 }
 
-.app-grid .app-box .titulo img {
+.app-section .apps .app-box .titulo img {
   width: 50px;
   height: 50px;
   margin-right: 20px;
 }
 
-.app-grid .app-box .titulo h2 {
+.app-section .apps .app-box .titulo h2 {
   font-family: 'Noto Sans', sans-serif;
   font-size: 22px;
 }
 
-.app-grid .app-box p {
+.app-section .apps .app-box p {
   font-family: 'Noto Sans', sans-serif;
   font-size: 15px;
-}
-
-.app-grid .app-box1 {
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 2;
-  grid-area: box1;
-}
-
-.app-grid .app-box2 {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 3;
-  -ms-grid-column: 4;
-  grid-area: box2;
-}
-
-.app-grid .app-box3 {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-area: box3;
 }
 
 .app-container {
@@ -401,12 +518,6 @@ header ul li a:hover {
 
 .app-container .float i {
   padding-top: 18px;
-}
-
-.container {
-  margin: 0 auto;
-  width: 80%;
-  height: 100%;
 }
 
 .sidebar {
@@ -550,5 +661,10 @@ header ul li a:hover {
 .leaflet-container {
   width: 100%;
   height: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
 }
 /*# sourceMappingURL=index.css.map */

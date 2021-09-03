@@ -7,7 +7,7 @@
 @import './layout/Buttons';
 @import './layout/Modal';
 @import './layout/Header';
-@import './layout/AppSelect';
+@import './layout/Home';
 @import './layout/AppContainer';
 @import './layout/Sidebar';
 
@@ -22,4 +22,9 @@
 .leaflet-container {
     width: 100%;
     height: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
 }
