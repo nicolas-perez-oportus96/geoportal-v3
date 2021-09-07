@@ -59,13 +59,13 @@ export default function Sidebar() {
 
                 <div className="acciones">
                     <div className="ela-select">
-                        <span>Seleccione metodo de calculo de E.L.A</span>
+                        <span>Seleccione metodo de calculo de E.L.A.</span>
                         <select name="ela" onChange={(e) => handleChange(e.target.value)} >
                             <option selected value={null}>Seleccione un metodo de calculo</option>
-                            <option value="AA">AA</option>
-                            <option value="AABR" >AABR</option>
-                            <option value="AAR">AAR</option>
-                            <option value="MGE">MGE</option>
+                            <option value="AA">AA - Área-altitud.</option>
+                            <option value="AABR">AABR - Relación de equilibrio de área-altitud.</option>
+                            <option value="AAR">AAR - Relación de área de acumulación.</option>
+                            <option value="MGE">MGE - Elevación media del glaciar.</option>
                         </select>
                     </div>
 
