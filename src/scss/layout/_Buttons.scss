@@ -23,20 +23,21 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-
     img {
         width: 20px;
         height:20px;
         margin-left: 10px;
     }
-
     &:hover {
+        background-color: #4F4F8F;
         -webkit-box-shadow: 6px 6px 15px -3px rgba(0,0,0,0.45);
         -moz-box-shadow: 6px 6px 15px -3px rgba(0,0,0,0.45);
         box-shadow: 6px 6px 15px -3px rgba(0,0,0,0.45);
-        color: rgb(86, 86, 136);
+        color: rgb(28, 28, 29);
         border: none;
     }
+
+
 }
 
 .btn-reporte{
