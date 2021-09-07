@@ -28,17 +28,35 @@
                         color: white;
                         &:hover{
                             text-decoration: underline;
+                            
+                        }
+                        i{
+                            margin-left: 10px;
                         }
                     }
-                }:last-child{
-                    margin: 0;
+                    &:last-child{
+                        margin: 0;
+                        border: 1px solid white;
+                        border-radius: 5px;
+                        padding: 5px;
+                        a{
+                            text-decoration: none;
+                        }
+
+                        &:hover{
+                            background-color: white;
+                            a{
+                                color: rgb(49, 49, 49);
+                            }
+                        }
+                    }
                 }
             }
         }
     }
     .titulo {
         color: white;
-        padding-top: 5rem;
+        padding-top: 7rem;
         h1 {
             font-size: 35px;
         }

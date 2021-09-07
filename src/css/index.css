@@ -303,13 +303,32 @@ header ul li a:hover {
   text-decoration: underline;
 }
 
-.hero .flag .nav ul :last-child {
+.hero .flag .nav ul li a i {
+  margin-left: 10px;
+}
+
+.hero .flag .nav ul li:last-child {
   margin: 0;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.hero .flag .nav ul li:last-child a {
+  text-decoration: none;
+}
+
+.hero .flag .nav ul li:last-child:hover {
+  background-color: white;
+}
+
+.hero .flag .nav ul li:last-child:hover a {
+  color: #313131;
 }
 
 .hero .titulo {
   color: white;
-  padding-top: 5rem;
+  padding-top: 7rem;
 }
 
 .hero .titulo h1 {
