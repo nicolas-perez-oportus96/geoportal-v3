@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useContext } from "react";
-import { Map, TileLayer, LayersControl, LayerGroup, } from 'react-leaflet';
+import { Map, TileLayer, LayersControl, LayerGroup, useLeaflet } from 'react-leaflet';
 import "leaflet/dist/leaflet.css";
 import { CRS } from 'leaflet';
 import Shapefile from "./Shapefile";
@@ -8,7 +8,7 @@ import { FeatureContext } from '../../FeatureContext';
 import { BingLayer } from 'react-leaflet-bing';
 
 function Leaflet() {
-  const mapRef = useRef();
+  const mapRef = useLeaflet();
   const { feature, elaMethod, elaURL } = useContext(FeatureContext);
   const [featureValue, setFeatureValue] = feature;
   const [elaMethodValue, setElaMethodValue] = elaMethod;
@@ -17,9 +17,15 @@ function Leaflet() {
 
   // FUNCION PARA AÑADIR DATOS DEL GLACIAR SELECCIONADO AL CONTEXT
   async function getFeatureData(featureData) {
-    setElaURLValue(null)
-    setElaMethodValue(null)
-    setFeatureValue(featureData);
+
+    if (featureData.COD_GLA !== featureValue.COD_GLA) {
+      setElaURLValue(null)
+      setElaMethodValue(null)
+      setFeatureValue(featureData);
+    } else{
+      console.log('mismo glaciar')
+    }
+    
   }
 
 
@@ -29,6 +35,14 @@ function Leaflet() {
     await setElaURLValue(url);
   }
 
+  //funcion para limpiar datos 
+  const cleanData = () => {
+    if (Object.entries(featureValue).length !== 0) {
+      setFeatureValue({});
+    }else{
+      console.log('glaciar no seleccionado')
+    }
+  }
 
 
   useEffect(() => {
@@ -37,11 +51,11 @@ function Leaflet() {
 
 
   return (
-    <Map maxBounds={[[-35.494268, -70.735148], [-32.963408, -69.766694]]} zoom={8} minZoom={8} maxZoom={13} center={[-34.238347, -70.250921]} style={{ height: "100vh" }} crs={CRS.EPSG3857} ref={mapRef}>
-      <LayersControl collapsed={false} position="topright">
+    <Map maxBounds={[[-35.494268, -70.735148], [-32.963408, -69.766694]]} zoom={8} minZoom={8} maxZoom={14} center={[-34.238347, -70.250921]} style={{ height: "100vh" }} crs={CRS.EPSG3857} ref={mapRef} ondragstart={cleanData} id="mapa" key={1} animate={true} onbaselayerchange={()=> console.log('object')}  >
+      <LayersControl collapsed={false} position="topright" >
         {/* GRUPO DE CAPAS WORLD IMAGERY+ SHADERELIEF */}
         <LayersControl.BaseLayer checked name="HillShade" >
-          <LayerGroup>
+          <LayerGroup key={2} >
             {/* ESRI WORLD IMAGERY */}
             <TileLayer
               attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
@@ -60,31 +74,32 @@ function Leaflet() {
           <TileLayer
             attribution='Tiles &copy; Esri &mdash; Source: Esri'
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}"
+            key={3}
           />
         </LayersControl.BaseLayer>
 
         {/* BingMapsLayer */}
-        <LayersControl.BaseLayer name="Bing Maps Satellite">
-          <BingLayer bingkey={bing_key} />
+        <LayersControl.BaseLayer name="Bing Maps Satellite"  >
+          <BingLayer bingkey={bing_key} key={4}/>
         </LayersControl.BaseLayer>
 
       </LayersControl>
 
       {/* capa base */}
-      <TileLayer url="https://mobble.dev/tesis/teselas/CBase3/{z}/{x}/{y}.png" zIndex={5000} tms={false}/>
+      <TileLayer url="https://mobble.dev/tesis/teselas/CBase3/{z}/{x}/{y}.png" zIndex={5000} tms={false} key="5" />
 
       {/* glaciares */}
-      <VectorTilesLayer url="https://mobble.dev/tesis/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => getFeatureData(e.layer.properties)} />
+      <VectorTilesLayer url="https://mobble.dev/tesis/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => getFeatureData(e.layer.properties)} id="glaciares" />
 
 
       {elaURL !== null &&
         // ELA
-        <Shapefile zipUrl={elaURLValue} elaMethod={elaMethodValue} />
+        <Shapefile zipUrl={elaURLValue} elaMethod={elaMethodValue} key="7" />
 
       }
 
       {/* etiquetas */}
-      <TileLayer url="https://mobble.dev/tesis/teselas/Label5/{z}/{x}/{y}.png" tms={false} zIndex={5004}/>
+      <TileLayer url="https://mobble.dev/tesis/teselas/Label5/{z}/{x}/{y}.png" tms={false} zIndex={5004} key="8"/>
 
 
     </Map>

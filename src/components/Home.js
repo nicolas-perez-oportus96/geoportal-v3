@@ -20,7 +20,6 @@ export default function Home() {
 
                     <div className="nav">
                         <ul>
-                            <li><a href="#home">Aplicaciones</a></li>
                             <li><a href="#info">Sobre el proyecto</a></li>
                             <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSf_Qq53YisdwSBHU5CLuK9mX98Wax17xWu_15k7RVE9gky5Nw/viewform?usp=pp_url&entry.1571147561=Opci%C3%B3n+1" target="_blank" rel="noopener noreferrer">Encuesta de Evaluación<i class="fas fa-external-link-alt"></i></a></li>
                         </ul>
