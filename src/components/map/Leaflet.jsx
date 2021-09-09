@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Map, TileLayer, LayersControl, LayerGroup, useLeaflet } from 'react-leaflet';
 import "leaflet/dist/leaflet.css";
 import { CRS } from 'leaflet';
 import Shapefile from "./Shapefile";
+import Border from "./Border";
 import VectorTilesLayer from "./VectorTilesLayer";
 import { FeatureContext } from '../../FeatureContext';
 import { BingLayer } from 'react-leaflet-bing';
@@ -14,6 +15,7 @@ function Leaflet() {
   const [elaMethodValue, setElaMethodValue] = elaMethod;
   const [elaURLValue, setElaURLValue] = elaURL;
   const bing_key = "ArSPuxaxB8bp-VtsbY3jIUaocR9WLqKRM5X1rhjQLHHwolRjr5oAoUZ436gUVrvM"
+  const [borderShapeURL, setBorderShapeURL] = useState(null);
 
   // FUNCION PARA AÑADIR DATOS DEL GLACIAR SELECCIONADO AL CONTEXT
   async function getFeatureData(featureData) {
@@ -22,10 +24,11 @@ function Leaflet() {
       setElaURLValue(null)
       setElaMethodValue(null)
       setFeatureValue(featureData);
-    } else{
+      getBorderShape(featureData.COD_GLA)
+    } else {
       console.log('mismo glaciar')
     }
-    
+
   }
 
 
@@ -35,11 +38,19 @@ function Leaflet() {
     await setElaURLValue(url);
   }
 
+  // FUNCION PARA COMPONER URL DEL SHAPE BORDE DEL GLACIAR 
+  async function getBorderShape(codGla) {
+    const url = "https://mobble.dev/tesis/teselas/select/" + codGla + ".zip";
+    setBorderShapeURL(url);
+    console.log(borderShapeURL)
+  }
+
+
   //funcion para limpiar datos 
   const cleanData = () => {
     if (Object.entries(featureValue).length !== 0) {
       setFeatureValue({});
-    }else{
+    } else {
       console.log('glaciar no seleccionado')
     }
   }
@@ -51,7 +62,7 @@ function Leaflet() {
 
 
   return (
-    <Map maxBounds={[[-35.494268, -70.735148], [-32.963408, -69.766694]]} zoom={8} minZoom={8} maxZoom={14} center={[-34.238347, -70.250921]} style={{ height: "100vh" }} crs={CRS.EPSG3857} ref={mapRef} ondragstart={cleanData} id="mapa" key={1} animate={true} onbaselayerchange={()=> console.log('object')}  >
+    <Map maxBounds={[[-35.494268, -70.735148], [-32.963408, -69.766694]]} zoom={8} minZoom={8} maxZoom={15} center={[-34.238347, -70.250921]} style={{ height: "100vh" }} crs={CRS.EPSG3857} ref={mapRef} ondragstart={cleanData} id="mapa" key={1} animate={true} onbaselayerchange={() => console.log('object')}  >
       <LayersControl collapsed={false} position="topright" >
         {/* GRUPO DE CAPAS WORLD IMAGERY+ SHADERELIEF */}
         <LayersControl.BaseLayer checked name="HillShade" >
@@ -80,7 +91,7 @@ function Leaflet() {
 
         {/* BingMapsLayer */}
         <LayersControl.BaseLayer name="Bing Maps Satellite"  >
-          <BingLayer bingkey={bing_key} key={4}/>
+          <BingLayer bingkey={bing_key} key={4} />
         </LayersControl.BaseLayer>
 
       </LayersControl>
@@ -90,16 +101,21 @@ function Leaflet() {
 
       {/* glaciares */}
       <VectorTilesLayer url="https://mobble.dev/tesis/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => getFeatureData(e.layer.properties)} id="glaciares" />
-
-
-      {elaURL !== null &&
+      
+      { borderShapeURL !== null &&
+        // ELA
+        <Border zipUrl={borderShapeURL} />
+      }
+      
+      { elaURL !== null &&
         // ELA
         <Shapefile zipUrl={elaURLValue} elaMethod={elaMethodValue} key="7" />
-
       }
 
+
+
       {/* etiquetas */}
-      <TileLayer url="https://mobble.dev/tesis/teselas/Label5/{z}/{x}/{y}.png" tms={false} zIndex={5004} key="8"/>
+      <TileLayer url="https://mobble.dev/tesis/teselas/Label5/{z}/{x}/{y}.png" tms={false} zIndex={5004} key="8" />
 
 
     </Map>

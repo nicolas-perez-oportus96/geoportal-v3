@@ -132,7 +132,6 @@ export default function Home() {
                 </main>
 
                 <div className="container scroll">
-                    <i class="fas fa-caret-square-down"></i>
                     <span>Desliza hacia abajo para mas informacion...</span>
                 </div>
             </div>

@@ -44,6 +44,14 @@ function Shapefile({ zipUrl, elaMethod }) {
       }
     }
 
+    if (ela === 'border') {
+      style = {
+        "color": "#ffffff",
+        "weight":2 ,
+        "opacity": 1
+      }
+    }
+
     return style;
   }
 
