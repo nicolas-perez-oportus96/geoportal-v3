@@ -1,19 +1,18 @@
-.app-container{
+.app-container {
     height: 87vh;
     display: grid;
-    grid-template-columns:  repeat(3, 1fr) 20rem;
+    grid-template-columns: repeat(3, 1fr) 20rem;
     grid-template-rows: 4.5rem repeat(2, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
         "box3 box3 box3 box2"
         "box3 box3 box3 box2"
         "box3 box3 box3 box2";
-    font-family: 'Noto Sans', sans-serif;
-    
+    font-family: "Noto Sans", sans-serif;
+
     .flex {
         display: flex;
         align-items: center;
     }
-
 
     .sidebar {
         grid-area: box2;
@@ -25,33 +24,32 @@
             color: rgb(83, 83, 83);
         }
 
-        ul{
+        ul {
             list-style-type: none;
             font-size: 13px;
             font-weight: bold;
         }
-        
     }
-    
+
     .map {
         position: -webkit-sticky; /* Safari */
         position: sticky;
         top: 0;
         grid-area: box3;
         border-right: solid rgb(185, 183, 183) 1px;
-        overflow:hidden;
+        overflow: hidden;
         height: auto;
     }
 
-    .float{
-        position:fixed;
-        width:50px;
-        height:50px;
+    .float {
+        position: fixed;
+        width: 50px;
+        height: 50px;
         top: 30px;
-        left:40px;
-        background-color: #4F4F8F;
-        color:#FFF;
-        border-radius:50px;
+        left: 40px;
+        background-color: #4f4f8f;
+        color: #fff;
+        border-radius: 50px;
         box-shadow: 2px 2px 3px rgb(37, 37, 37);
         text-decoration: none;
         display: flex;
@@ -61,7 +59,12 @@
         }
     }
 
+    .leyenda {
+        width: 15rem;
+        position: absolute;
+        top: 230px;
+        right: 330px;
+        z-index: 10000;
+        border-radius: 5px;
+    }
 }
-
-
-

@@ -18,6 +18,8 @@ export default class App1 extends Component {
                 <a href="/home" class="float">
                     <i class="fas fa-arrow-circle-left my-float"></i>
                 </a>
+
+                <img src="/assets/leyenda.jpeg" alt="leyenda" className="leyenda"/>
             </main>
         )
     }

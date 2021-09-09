@@ -177,7 +177,7 @@ export default function Home() {
                         <h2>Información de Contacto</h2>
                     </div>
                     <div className="points">
-                        <span>Para una mayor informacion acerca de este proyecto, comunicate con:</span>
+                        <span>Para más información, sugerencias y consultas puedes escribir a:</span>
                         <ul>
                             <li>
                                 <i class="fas fa-user-alt"></i>
