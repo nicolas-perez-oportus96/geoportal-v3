@@ -200,3 +200,29 @@
     }
 }
 
+.contacto{
+    background-color: rgb(63, 63, 63);
+    color: white;
+    padding: 2rem 0;
+    .points{
+        span{
+            padding-bottom: 20px;
+            font-size: 16px;
+        }
+        ul{
+            margin-top: 20px;
+            padding-left: 20px;
+            list-style-type: none;
+            li{
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                i{
+                    margin-right: 15px;
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+}
+

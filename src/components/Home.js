@@ -8,7 +8,6 @@ export default function Home() {
 
     return (
         <div>
-
             <div className="hero" id="home">
 
                 {/* logos y navmenu */}
@@ -122,13 +121,8 @@ export default function Home() {
                                     <Link className="button" to="/app2">Ir a Aplicacion<img src="/assets/Arrow.svg" alt="arrow"></img> </Link>
                                 </div>
                             </Modal>
-
                         </div>
-
                     </div>
-
-
-
                 </main>
 
                 <div className="container scroll">
@@ -137,9 +131,7 @@ export default function Home() {
             </div>
 
             <div className="encuesta-section">
-
                 <div className="contenido container">
-
                     <div className="texto">
                         <h2>Encuesta de Evaluacion</h2>
                         <p>Haz clic en el boton para Realizar la encuesta</p>
@@ -178,8 +170,26 @@ export default function Home() {
                     </ul>
                 </div>
             </div>
+
+            <div className="contacto">
+                <div className="container">
+                    <div className="titulo">
+                        <h2>Información de Contacto</h2>
+                    </div>
+                    <div className="points">
+                        <span>Para una mayor informacion acerca de este proyecto, comunicate con:</span>
+                        <ul>
+                            <li>
+                                <i class="fas fa-user-alt"></i>
+                                Carlos Pérez Oportus</li>
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                carlperez@udec.cl
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
     )
 }

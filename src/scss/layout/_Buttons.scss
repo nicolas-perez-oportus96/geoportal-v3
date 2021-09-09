@@ -1,4 +1,4 @@
-.boton{
+.boton {
     display: flex;
     justify-content: flex-end;
 }
@@ -6,15 +6,15 @@
 .button {
     font-size: 14px;
     font-weight: 500;
-    font-family:'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: black;
     border: solid 1px gray;
     padding: 10px;
     border-radius: 20px;
-    background-image: radial-gradient( circle 827px at 47.3% 48%,  rgba(255,255,255,1) 0%, rgba(138,192,216,1) 90% );
+    background-image: radial-gradient(circle 827px at 47.3% 48%, rgba(255, 255, 255, 1) 0%, rgba(138, 192, 216, 1) 90%);
     cursor: pointer;
     transition-property: all;
-    transition-duration: .4s;
+    transition-duration: 0.4s;
     text-decoration: none;
     width: 200px;
     padding-left: 20px;
@@ -25,58 +25,55 @@
     align-items: center;
     img {
         width: 20px;
-        height:20px;
+        height: 20px;
         margin-left: 10px;
     }
     &:hover {
-        background-color: #4F4F8F;
-        -webkit-box-shadow: 6px 6px 15px -3px rgba(0,0,0,0.45);
-        -moz-box-shadow: 6px 6px 15px -3px rgba(0,0,0,0.45);
-        box-shadow: 6px 6px 15px -3px rgba(0,0,0,0.45);
+        background-color: #4f4f8f;
+        -webkit-box-shadow: 6px 6px 15px -3px rgba(0, 0, 0, 0.45);
+        -moz-box-shadow: 6px 6px 15px -3px rgba(0, 0, 0, 0.45);
+        box-shadow: 6px 6px 15px -3px rgba(0, 0, 0, 0.45);
         color: rgb(28, 28, 29);
         border: none;
     }
-
-
 }
 
-.btn-reporte{
+.btn-reporte {
     display: flex;
     align-items: center;
     padding: 5px;
-    border-color: #4F4F8F;
+    border-color: #4f4f8f;
     border-radius: 5px;
-    color: #4F4F8F;
+    color: #4f4f8f;
     background-color: white;
     width: 120px;
     height: 50px;
 
-        i {
-            font-size: 30px;
-            margin-right: 5px;
-        }
+    i {
+        font-size: 30px;
+        margin-right: 5px;
     }
+}
 
-    .btn-reporte:hover{
-        color: white;
-        background-color: #4F4F8F;
-        border-color: white;
-        cursor: pointer;
+.btn-reporte:hover {
+    color: white;
+    background-color: #4f4f8f;
+    border-color: white;
+    cursor: pointer;
+}
+
+.ela-select {
+    display: flex;
+    justify-content: center;
+    height: min-content;
+    margin-bottom: 1rem;
+
+    select {
+        display: block;
+        height: 2rem;
+        width: 16.5rem;
+        border: solid 2px #4f4f8f;
+        border-radius: 5px;
+        color: #4f4f8f;
     }
-
-
-    .ela-select{
-        display: flex;
-        justify-content: center;
-        height: min-content;
-        margin-bottom: 1rem;
-
-        select{
-            display: block;
-            height: 2rem;
-            width: 16.5rem;
-            border: solid 2px #4F4F8F;
-            border-radius: 5px;
-            color: #4F4F8F;
-        }
-    }
+}
