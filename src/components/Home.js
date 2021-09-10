@@ -85,7 +85,7 @@ export default function Home() {
                                     <h2>Aplicacion 2</h2>
                                 </div>
                                 <div className="nombre-app">
-                                    <span>Estimación de la Línea de equilibrio glaciar (ELA)</span>
+                                    <span>Estimación de la Línea de equilibrio glaciar (E.L.A).</span>
                                 </div>
                                 <div className="boton">
                                     <button className="button" onClick={() => setApp2Open(true)}>Mas Información<img src="/assets/Arrow.svg" alt="arrow"></img> </button>
@@ -95,7 +95,7 @@ export default function Home() {
                             {/* Modal Aplicacion 2 */}
                             <Modal open={app2Open} className="modal">
                                 <div className="titulo">
-                                    <h3>Estimación de la Línea de equilibrio glaciar (ELA)</h3>
+                                    <h3>Estimación de la Línea de equilibrio glaciar (E.L.A).</h3>
                                 </div>
 
                                 <div className="objetivo">

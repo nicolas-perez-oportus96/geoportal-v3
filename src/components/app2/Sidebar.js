@@ -53,7 +53,7 @@ export default function Sidebar() {
                 <div className="banner">
                     <img src="/assets/app-icon.svg" alt="app-icon" />
                     <div className="app-title">
-                        <h1>Aplicacion 2: <br /><span>Linea de Tendencia Central</span></h1>
+                        <h1>Aplicacion 2: <br /><span>Estimación de la Línea de equilibrio glaciar (E.L.A).</span></h1>
                     </div>
                 </div>
 
