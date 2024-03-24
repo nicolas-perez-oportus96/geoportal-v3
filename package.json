@@ -1,6 +1,6 @@
 {
-  "name": "Geoportal",
-  "version": "1.0.0",
+  "name": "geoportal",
+  "version": "1.2.0",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
