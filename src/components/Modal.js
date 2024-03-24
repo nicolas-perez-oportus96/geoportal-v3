@@ -1,13 +1,13 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import { createPortal } from 'react-dom';
 
-export default function Modal({open, children}) {
+export default function Modal({ open, children }) {
 
     if (!open) return null;
 
-    return ReactDom.createPortal(
+    return createPortal(
         <>
-            <div className='overlay'/>
+            <div className='overlay' />
 
             <div className='modal'>
                 {children}

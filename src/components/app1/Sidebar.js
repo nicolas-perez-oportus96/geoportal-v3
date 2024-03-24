@@ -50,8 +50,14 @@ export default function Sidebar() {
                 </div>
 
                 <div className="descargas">
-                    <button className="btn-reporte" onClick={(e) => getReporte(featureValue.COD_GLA)}><i class="far fa-file-pdf"></i>Descargar Reporte</button>
-                    <button className="btn-reporte" onClick={(e) => getShape(featureValue.COD_GLA)}><i class="far fa-file-archive"></i>Descargar ShapeFile</button>
+                    <button className="btn-reporte" onClick={() => getReporte(featureValue.COD_GLA)}>
+                        <i className="far fa-file-pdf"></i>
+                        Descargar Reporte
+                    </button>
+                    <button className="btn-reporte" onClick={() => getShape(featureValue.COD_GLA)}>
+                        <i className="far fa-file-archive"></i>
+                        Descargar ShapeFile
+                    </button>
                 </div>
                 <div className="descargas">
                     <a target="_blank" rel="noopener noreferrer" href={`${DEV_BASE_URL}/app1/ING_METADATOS.xml`}>Ver Metadatos</a>
@@ -71,7 +77,7 @@ export default function Sidebar() {
                             <ul className="lista">
                                 <li>
                                     <Tippy content="Nombre del glaciar (en caso que posea)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     NOMBRE:
                                     <span>{featureValue.NOMBRE}</span>
@@ -79,7 +85,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Código del glaciar definido según normas del World Glacier Inventory (WGI)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     CÓDIGO WGI:
                                     <span>{featureValue.COD_GLA}</span>
@@ -87,7 +93,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Código del glaciar definido por el Banco Nacional de Aguas (BNA)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     CÓDIGO BNI:
                                     <span>{featureValue.COD_BNA}</span>
@@ -95,7 +101,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Código de clasificación del glaciar según normas UNESCO/WGI" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     CLASIFICACIÓN WGI:
                                     <span>{featureValue.CLAS_WGI}</span>
@@ -103,7 +109,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Categoría de clasificación del glaciar según normas UNESCO/WGI" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     CATEGORÍA DE CLASIFICACIÓN WGI:
                                     <span>{featureValue.CLASIFICA}</span>
@@ -111,7 +117,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Zona glaciológica de Chile en la que se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ZONA GLACIOLÓGICA:
                                     <span>{featureValue.ZONA_GLACI}</span>
@@ -119,7 +125,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Coordenada este UTM (centroide del glaciar)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     COORDENADA ESTE:
                                     <span>{featureValue.ESTE}</span>
@@ -127,7 +133,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Coordenada norte UTM (centroide del glaciar)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     COORDENADA NORTE:
                                     <span>{featureValue.NORTE}</span>
@@ -135,7 +141,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Coordenada geográfica de latitud (grados decimales)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     LATITUD:
                                     <span>{featureValue.LATITUD}</span>
@@ -143,7 +149,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Coordenada geográfica de longitud (grados decimales)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     LONGITUD:
                                     <span>{featureValue.LONGITUD}</span>
@@ -164,7 +170,7 @@ export default function Sidebar() {
                             <ul className="lista">
                                 <li>
                                     <Tippy content="Código de la región en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     CÓDIGO DE REGIÓN:
                                     <span>{featureValue.COD_REGION}</span>
@@ -172,7 +178,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Nombre de la región en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     NOMBRE DE REGIÓN:
                                     <span>{featureValue.REGION}</span>
@@ -180,7 +186,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Código de la provincia en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     CÓDIGO DE PROVINCIA:
                                     <span>{featureValue.COD_PROVIN}</span>
@@ -188,7 +194,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Nombre de la provincia en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     NOMBRE DE PROVINCIA:
                                     <span>{featureValue.PROVINCIA}</span>
@@ -196,7 +202,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Código de la  comuna en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     CÓDIGO DE COMUNA:
                                     <span>{featureValue.COD_COM}</span>
@@ -204,7 +210,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Nombre de la comuna en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     NOMBRE DE COMUNA:
                                     <span>{featureValue.COMUNA}</span>
@@ -225,14 +231,14 @@ export default function Sidebar() {
                             <ul className="lista">
                                 <li>
                                     <Tippy content="Código de la cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     CÓDIGO DE CUENCA:
                                     <span>{featureValue.COD_CUEN}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Nombre de la cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     NOMBRE DE CUENCA:
                                     <span>{featureValue.NOMB_CUEN}</span>
@@ -240,7 +246,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Código de la sub-cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     CÓDIGO DE SUB-CUENCA:
                                     <span>{featureValue.COD_SCUEN}</span>
@@ -248,7 +254,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Nombre de la sub-cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     NOMBRE DE SUB-CUENCA:
                                     <span>{featureValue.NOMB_SCUEN}</span>
@@ -256,7 +262,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Código de la sub-sub-cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     CÓDIGO DE SUB-SUB-CUENCA:
                                     <span>{featureValue.COD_SSCUEN}</span>
@@ -264,7 +270,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Nombre de la sub-sub-cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     NOMBRE DE SUB-SUB-CUENCA:
                                     <span>{featureValue.NOMB_SSCUE}</span>
@@ -285,7 +291,7 @@ export default function Sidebar() {
                             <ul className="lista">
                                 <li>
                                     <Tippy content="Cantidad de cuencas de drenaje que posee el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     CUENCAS DE DRENAJE:
                                     <span>{featureValue.N_CUENDRE}</span>
@@ -293,7 +299,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Área total del glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ÁREA TOTAL (Km²):
                                     <span>{featureValue.AREA_KM2}</span>
@@ -301,7 +307,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Área cubierta del glaciar (Km²)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ÁREA CUBIERTA (Km²):
                                     <span>{featureValue.AREA_CUB2}</span>
@@ -309,7 +315,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Perímetro del glaciar (Km)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     PERÍMETRO (Km):
                                     <span>{featureValue.PERIMET}</span>
@@ -317,7 +323,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Volumen del glaciar (m³)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     VOLUMEN (m³):
                                     <span>{featureValue.VOLU_M3}</span>
@@ -325,7 +331,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Largo máximo del glaciar (Km)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     LARGO MÁXIMO (Km):
                                     <span>{featureValue.LMAXTOTAL}</span>
@@ -333,7 +339,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Largo promedio del glaciar (Km)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     LARGO PROMEDIO (Km):
                                     <span>{featureValue.LARGO_PROM}</span>
@@ -341,7 +347,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Ancho promedio del glaciar (Km)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ANCHO PROMEDIO (Km):
                                     <span>{featureValue.ANCHO_PROM}</span>
@@ -349,7 +355,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Espesor medio del glaciar (m)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ESPESOR MEDIO (m):
                                     <span>{featureValue.ESP_MED}</span>
@@ -357,7 +363,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Altitud máxima del glaciar (msnm)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ALTITUD MÁXIMA (msnm):
                                     <span>{featureValue.HMAX}</span>
@@ -365,7 +371,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Altitud media del glaciar (msnm)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ALTITUD MEDIA (msnm):
                                     <span>{featureValue.HMEDIA}</span>
@@ -373,7 +379,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Altitud mínima total del glaciar (msnm)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ALTITUD MÍNIMA TOTAL (msnm):
                                     <span>{featureValue.HMINTOTAL}</span>
@@ -381,7 +387,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Mediana de la altitud del glaciar (msnm)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     MEDIANA DE LA ALTITUD (msnm):
                                     <span>{featureValue.HMEDIANA}</span>
@@ -389,7 +395,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Dirección de orientación del glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ORIENTACIÓN:
                                     <span>{featureValue.ORIENTA}</span>
@@ -397,7 +403,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Pendiente del glaciar (grados)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     PENDIENTE (grados):
                                     <span>{featureValue.PENDIENTE}</span>
@@ -421,7 +427,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Area de acumulación del glaciar (Km²)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ÁREA ACUMULACIÓN (Km²):
                                     <span>{featureValue.AREA_ACUM}</span>
@@ -429,7 +435,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Largo máximo acumulado del glaciar (Km)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     LARGO MÁXIMO ACUMULADO (Km):
                                     <span>{featureValue.L_MAX_ACUM}</span>
@@ -437,7 +443,7 @@ export default function Sidebar() {
 
                                 <li>
                                     <Tippy content="Orientación del área de acumulación" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ORIENTACIÓN DE ACUMULACIÓN:
                                     <span>{featureValue.ORIENACUM}</span>
@@ -458,28 +464,28 @@ export default function Sidebar() {
                             <ul className="lista">
                                 <li>
                                     <Tippy content="Área de ablación del glaciar (Km²)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ÁREA ABLACIÓN (Km²):
                                     <span>{featureValue.AREA_ABLAC}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Largo máximo de ablación (Km)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     LARGO MÁXIMO ABLACIÓN (Km):
                                     <span>{featureValue.LMAXABLAC}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Altitud media del área de ablación (msnm)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ALTITUD MEDIA ABLACIÓN (msnm):
                                     <span>{featureValue.HMEDABLAC}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Orientación del área de ablación" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ORIENTACIÓN DE ABLACIÓN (msnm):
                                     <span>{featureValue.ORIENABLAC}</span>
@@ -500,21 +506,21 @@ export default function Sidebar() {
                             <ul className="lista">
                                 <li>
                                     <Tippy content="Área expuesta del glaciar (Km²)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ÁREA EXPUESTA (Km²):
                                     <span>{featureValue.AREA_EXP}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Largo máximo expuesto del glaciar (Km)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     LARGO MÁXIMO EXPUESTO (Km):
                                     <span>{featureValue.L_MAX_EXP}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Altitud mínima del área expuesta (msnm)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ALTITUD MÍNIMA EXPUESTA (msnm):
                                     <span>{featureValue.HMINEXP}</span>
@@ -535,56 +541,56 @@ export default function Sidebar() {
                             <ul className="lista">
                                 <li>
                                     <Tippy content="Año de realización del inventario " trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     FECHA DEL INVENTARIO:
                                     <span>{featureValue.INVENT_FEC}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Fuente digitalización" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     FUENTE DE DIGITALIZACIÓN:
                                     <span>{featureValue.FUENTE_DIG}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Fecha de la fuente utilizada para la digitalización (dd/mm/aaaa)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     FECHA DE LA FUENTE:
                                     <span>{featureValue.FUENTE_FEC}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Sistema de referencia" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     DATUM:
                                     <span>{featureValue.DATUM}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Zona cartográfica en la que se sitúa el glaciar" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     HUSO:
                                     <span>{featureValue.HUSO}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Resolución espacial de la base de imágenes utilizada (m²)" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     PRECISIÓN DE MEDIDA (m²):
                                     <span>{featureValue.PRECM}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Error Absoluto" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ERROR ABSOLUTO (km²):
                                     <span>{featureValue.ERROR_KM2}</span>
                                 </li>
                                 <li>
                                     <Tippy content="Error Absoluto" trigger='click' animation='shift-away'>
-                                        <i class="far fa-question-circle"></i>
+                                        <i className="far fa-question-circle"></i>
                                     </Tippy>
                                     ERROR PROPORCIONAL:
                                     <span>{featureValue.ERROR_PORC}</span>
