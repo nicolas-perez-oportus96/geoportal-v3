@@ -6,6 +6,8 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
 import 'tippy.js/animations/shift-away.css';
 import 'react-accessible-accordion/dist/fancy-example.css';
+import { DEV_BASE_URL } from '../../properties';
+const FileDownload = require('js-file-download');
 
 export default function Sidebar() {
 
@@ -14,36 +16,30 @@ export default function Sidebar() {
     const [elaMethodValue, setElaMethodValue] = elaMethod;
     const [elaFeatureValue,] = elaFeature;
 
-    // FUNCION PARA DESCARGAR REPORTE PDF
+    // FUNCIÓN PARA DESCARGAR REPORTE PDF
     async function getReporte(id, method) {
-        const FileDownload = require('js-file-download');
-        const url = 'https://mobble.dev/tesis/app2/PDF/' + method + '/_' + id + '-.pdf';
-        axios({
-            url: url,
+        const query = await axios({
+            url: `${DEV_BASE_URL}/app2/PDF/${method}/_${id}-.pdf`,
             method: 'GET',
             responseType: 'blob', // Importants
-        }).then((response) => {
-            FileDownload(response.data, id + method + '.pdf');
-        });
-    }
-
-    // FUNCION PARA DESCARGAR SHAPES
+        })
+        FileDownload(query.data, `REP_${method}-${id}.pdf`);
+    };
+    
+    // FUNCIÓN PARA DESCARGAR SHAPES
     async function getShape(id, method) {
-        const FileDownload = require('js-file-download');
-        const url = 'https://mobble.dev/tesis/app2/SHP/' + method + '/' + id + method + '.zip';
-        axios({
-            url: url,
+        const query = await axios({
+            url: `${DEV_BASE_URL}/app2/SHP/${method}/${id}${method}.zip`,
             method: 'GET',
             responseType: 'blob', // Important
-        }).then((response) => {
-            FileDownload(response.data, 'shape-' + id + method + '.zip');
-        });
-    }
+        })
+        await FileDownload(query.data, `SHP_${method}-${id}.zip`);
+    };
 
     // MANEJANDO SELECT 
     const handleChange = (value) => {
         setElaMethodValue(value)
-    }
+    };
 
     // RENDERIZADO DEL SIDEBAR
     if (Object.entries(featureValue).length !== 0) {
@@ -53,15 +49,15 @@ export default function Sidebar() {
                 <div className="banner">
                     <img src="/assets/app-icon.svg" alt="app-icon" />
                     <div className="app-title">
-                        <h1>Aplicacion 2: <br /><span>Estimación de la Línea de equilibrio glaciar (E.L.A).</span></h1>
+                        <h1>Aplicación 2: <br /><span>Estimación de la Línea de equilibrio glaciar (E.L.A).</span></h1>
                     </div>
                 </div>
 
                 <div className="acciones">
                     <div className="ela-select">
-                        <span>Seleccione metodo de calculo de E.L.A.</span>
+                        <span>Seleccione método de calculo de E.L.A.</span>
                         <select name="ela" onChange={(e) => handleChange(e.target.value)} >
-                            <option selected value={null}>Seleccione un metodo de calculo</option>
+                            <option selected value={null}>Seleccione un método de calculo</option>
                             <option value="AA">AA - Área-altitud.</option>
                             <option value="AABR">AABR - Relación de equilibrio de área-altitud.</option>
                             <option value="AAR">AAR - Relación de área de acumulación.</option>
@@ -78,7 +74,7 @@ export default function Sidebar() {
                             </div>
 
                             <div className="descargas">
-                                <a target="_blank" rel="noopener noreferrer" href="https://mobble.dev/tesis/app2/ELA_METADA.xml">Ver Metadatos</a>
+                                <a target="_blank" rel="noopener noreferrer" href={`${DEV_BASE_URL}/app2/ELA_METADA.xml`}>Ver Metadatos</a>
                             </div>
 
                         </div>
@@ -124,7 +120,7 @@ export default function Sidebar() {
                                     </li>
 
                                     <li>
-                                        <Tippy content="Codigo de clasificación del glaciar según normas UNESCO/WGI" trigger='click' animation='shift-away'>
+                                        <Tippy content="Código de clasificación del glaciar según normas UNESCO/WGI" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
                                         CLASIFICACIÓN WGI:
@@ -132,7 +128,7 @@ export default function Sidebar() {
                                     </li>
 
                                     <li>
-                                        <Tippy content="Categoria de clasificación del glaciar según normas UNESCO/WGI" trigger='click' animation='shift-away'>
+                                        <Tippy content="Categoría de clasificación del glaciar según normas UNESCO/WGI" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
                                         CATEGORÍA DE CLASIFICACIÓN WGI:
@@ -140,7 +136,7 @@ export default function Sidebar() {
                                     </li>
 
                                     <li>
-                                        <Tippy content="Zona glaciologica de Chile en la que se situa el glaciar" trigger='click' animation='shift-away'>
+                                        <Tippy content="Zona glaciológica de Chile en la que se sitúa el glaciar" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
                                         ZONA GLACIOLÓGICA:
@@ -161,10 +157,10 @@ export default function Sidebar() {
                             <AccordionItemPanel>
                                 <ul className="lista">
                                     <li>
-                                        <Tippy content="Codigo de la región en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
+                                        <Tippy content="Código de la región en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
-                                        CODIGO DE REGION:
+                                        CÓDIGO DE REGION:
                                         <span>{elaFeatureValue.COD_REGION}</span>
                                     </li>
 
@@ -177,7 +173,7 @@ export default function Sidebar() {
                                     </li>
 
                                     <li>
-                                        <Tippy content="Codigo de la provincia en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
+                                        <Tippy content="Código de la provincia en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
                                         CÓDIGO DE PROVINCIA:
@@ -185,7 +181,7 @@ export default function Sidebar() {
                                     </li>
 
                                     <li>
-                                        <Tippy content="Nombre de la cuenca hidrografrica en donde se situa el glaciar" trigger='click' animation='shift-away'>
+                                        <Tippy content="Nombre de la cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
                                         PROVINCIA:
@@ -193,15 +189,15 @@ export default function Sidebar() {
                                     </li>
 
                                     <li>
-                                        <Tippy content="Nombre de la cuenca hidrografrica en donde se situa el glaciar" trigger='click' animation='shift-away'>
+                                        <Tippy content="Nombre de la cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
-                                        CODIGO DE COMUNA:
+                                        CÓDIGO DE COMUNA:
                                         <span>{elaFeatureValue.COD_COM}</span>
                                     </li>
 
                                     <li>
-                                        <Tippy content="Nombre de la cuenca hidrografrica en donde se situa el glaciar" trigger='click' animation='shift-away'>
+                                        <Tippy content="Nombre de la cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
                                         COMUNA:
@@ -222,15 +218,15 @@ export default function Sidebar() {
                             <AccordionItemPanel>
                                 <ul className="lista">
                                     <li>
-                                        <Tippy content="Nombre de la cuenca hidrografrica en donde se situa el glaciar" trigger='click' animation='shift-away'>
+                                        <Tippy content="Nombre de la cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
-                                        CODIGO DE CUENCA:
+                                        CÓDIGO DE CUENCA:
                                         <span>{elaFeatureValue.COD_CUEN}</span>
                                     </li>
 
                                     <li>
-                                        <Tippy content="Nombre de la cuenca hidrografrica en donde se situa el glaciar" trigger='click' animation='shift-away'>
+                                        <Tippy content="Nombre de la cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
                                         NOMBRE DE CUENCA:
@@ -238,34 +234,34 @@ export default function Sidebar() {
                                     </li>
 
                                     <li>
-                                        <Tippy content="Codigo de la subcuenca hidrografrica en donde se situa el glaciar" trigger='click' animation='shift-away'>
+                                        <Tippy content="Código de la sub-cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
-                                        CODIGO DE SUBCUENCA:
+                                        CÓDIGO DE SUB-CUENCA:
                                         <span>{elaFeatureValue.COD_SCUEN}</span>
                                     </li>
 
                                     <li>
-                                        <Tippy content="Nombre de la subcuenca hidrografrica en donde se situa el glaciar" trigger='click' animation='shift-away'>
+                                        <Tippy content="Nombre de la sub-cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
-                                        NOMBRE DE SUBCUENCA:
+                                        NOMBRE DE SUB-CUENCA:
                                         <span>{elaFeatureValue.NOMB_SCUEN}</span>
                                     </li>
 
                                     <li>
-                                        <Tippy content="Nombre de la subsubcuenca hidrografrica en donde se situa el glaciar" trigger='click' animation='shift-away'>
+                                        <Tippy content="Nombre de la sub-sub-cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
-                                        CODIGO DE SUBSUBCUENCA:
+                                        CÓDIGO DE SUB-SUB-CUENCA:
                                         <span>{elaFeatureValue.COD_SSCUEN}</span>
                                     </li>
 
                                     <li>
-                                        <Tippy content="Nombre de la subsubcuenca hidrografrica en donde se situa el glaciar" trigger='click' animation='shift-away'>
+                                        <Tippy content="Nombre de la sub-sub-cuenca hidrográfica en donde se sitúa el glaciar" trigger='click' animation='shift-away'>
                                             <i class="far fa-question-circle"></i>
                                         </Tippy>
-                                        NOMBRE DE SUBSUBCUENCA:
+                                        NOMBRE DE SUB-SUB-CUENCA:
                                         <span>{elaFeatureValue.NOMB_SSCUEN}</span>
                                     </li>
                                 </ul>
@@ -490,7 +486,7 @@ export default function Sidebar() {
                 <div className="banner">
                     <img src="/assets/app-icon.svg" alt="app-icon" />
                     <div className="app-title">
-                        <h1>Aplicacion 2: <br /><span>Linea de Tendencia Central</span></h1>
+                        <h1>Aplicación 2: <br /><span>Linea de Tendencia Central</span></h1>
                     </div>
                 </div>
 

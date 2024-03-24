@@ -7,6 +7,7 @@ import Border from "./Border";
 import VectorTilesLayer from "./VectorTilesLayer";
 import { FeatureContext } from '../../FeatureContext';
 import { BingLayer } from 'react-leaflet-bing';
+import { DEV_AREA_ESTUDIO_URL, DEV_BASE_URL, DEV_ETIQUETAS_URL, DEV_VT_URL } from "../../properties";
 
 function Leaflet() {
   const mapRef = useLeaflet();
@@ -17,7 +18,7 @@ function Leaflet() {
   const bing_key = "ArSPuxaxB8bp-VtsbY3jIUaocR9WLqKRM5X1rhjQLHHwolRjr5oAoUZ436gUVrvM"
   const [borderShapeURL, setBorderShapeURL] = useState(null);
 
-  // FUNCION PARA AÑADIR DATOS DEL GLACIAR SELECCIONADO AL CONTEXT
+  // FUNCIÓN PARA AÑADIR DATOS DEL GLACIAR SELECCIONADO AL CONTEXT
   async function getFeatureData(featureData) {
 
     if (featureData.COD_GLA !== featureValue.COD_GLA) {
@@ -32,28 +33,27 @@ function Leaflet() {
   }
 
 
-  // FUNCION PARA COMPONER URL DEL SHAPE CORRESPONDIENTE
+  // FUNCIÓN PARA COMPONER URL DEL SHAPE CORRESPONDIENTE
   async function getElaShapeURL(method, codGla) {
-    const url = "https://mobble.dev/tesis/app2/SHP/" + method + "/" + codGla + method + ".zip";
-    await setElaURLValue(url);
+    // const url = "https://mobble.dev/tesis/app2/SHP/" + method + "/" + codGla + method + ".zip";
+    setElaURLValue(`${DEV_BASE_URL}/app2/SHP/${method}/${codGla}${method}.zip`);
   }
 
-  // FUNCION PARA COMPONER URL DEL SHAPE BORDE DEL GLACIAR 
+  // FUNCIÓN PARA COMPONER URL DEL SHAPE BORDE DEL GLACIAR 
   async function getBorderShape(codGla) {
-    const url = "https://mobble.dev/tesis/teselas/select/" + codGla + ".zip";
-    setBorderShapeURL(url);
-    console.log(borderShapeURL)
+    // const url = "https://mobble.dev/tesis/teselas/select/" + codGla + ".zip";
+    setBorderShapeURL(`${DEV_BASE_URL}/teselas/select/${codGla}.zip`);
   }
 
 
-  //funcion para limpiar datos 
+  //función para limpiar datos 
   const cleanData = () => {
     if (Object.entries(featureValue).length !== 0) {
       setFeatureValue({});
     } else {
       console.log('glaciar no seleccionado')
     }
-  }
+  };
 
 
   useEffect(() => {
@@ -93,31 +93,22 @@ function Leaflet() {
         <LayersControl.BaseLayer name="Bing Maps Satellite"  >
           <BingLayer bingkey={bing_key} key={4} />
         </LayersControl.BaseLayer>
-
       </LayersControl>
 
       {/* capa base */}
-      <TileLayer url="https://mobble.dev/tesis/teselas/CBase3/{z}/{x}/{y}.png" zIndex={5000} tms={false} key="5" />
+      <TileLayer url={DEV_AREA_ESTUDIO_URL} zIndex={5000} tms={false} key="5" />
 
       {/* glaciares */}
-      <VectorTilesLayer url="https://mobble.dev/tesis/teselas/ING_VT/{z}/{x}/{y}.pbf" clickHandler={(e) => getFeatureData(e.layer.properties)} id="glaciares" />
-      
-      { borderShapeURL !== null &&
-        // ELA
-        <Border zipUrl={borderShapeURL} />
-      }
-      
-      { elaURL !== null &&
-        // ELA
-        <Shapefile zipUrl={elaURLValue} elaMethod={elaMethodValue} key="7" />
-      }
+      <VectorTilesLayer url={DEV_VT_URL} clickHandler={(e) => getFeatureData(e.layer.properties)} id="glaciares" />
 
+      {/* ELA */}
+      {borderShapeURL !== null &&  <Border zipUrl={borderShapeURL} /> }
 
+      {/* ELA */}
+      {elaURL !== null && <Shapefile zipUrl={elaURLValue} elaMethod={elaMethodValue} key="7" />}
 
       {/* etiquetas */}
-      <TileLayer url="https://mobble.dev/tesis/teselas/Label5/{z}/{x}/{y}.png" tms={false} zIndex={5004} key="8" />
-
-
+      <TileLayer url={DEV_ETIQUETAS_URL} tms={false} zIndex={5004} key="8" />
     </Map>
   );
 }
