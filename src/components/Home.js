@@ -19,9 +19,17 @@ export default function Home() {
 
                     <div className="nav">
                         <ul>
-                            <li><a href="#info">Sobre el proyecto</a></li>
-                            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSf_Qq53YisdwSBHU5CLuK9mX98Wax17xWu_15k7RVE9gky5Nw/viewform?usp=pp_url&entry.1571147561=Opci%C3%B3n+1" target="_blank" rel="noopener noreferrer">Encuesta de Evaluación
-                                <i className="fas fa-external-link-alt"></i></a></li>
+                            <li>
+                                <a href="#info">Sobre el proyecto</a>
+                            </li>
+                            <li>
+                                <a href="/servicios">Servicios de mapas web</a>
+                            </li>
+                            <li>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_Qq53YisdwSBHU5CLuK9mX98Wax17xWu_15k7RVE9gky5Nw/viewform?usp=pp_url&entry.1571147561=Opci%C3%B3n+1" target="_blank" rel="noopener noreferrer">
+                                    Encuesta de Evaluación <i className="fas fa-external-link-alt"></i>
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
@@ -70,7 +78,7 @@ export default function Home() {
 
                                 <div className="descripción">
                                     <span className="subtitulo">Sobre el inventario Nacional de glaciares</span>
-                                    <p>El inventario Nacional de Glaciares dispone la georreferenciación y caracterización de la superficie glaciar del país vigente al año 2014.  Este trabajo es elaborado por la Dirección General de Aguas (DGA) del Ministerio de obras públicas de Chile (MOP), específicamente por la unidad de glaciología y nieves. El inventario actual cuenta con un total de 24.114 registros a nivel nacional de los cuales 2.003 se sitúan en el área de estudio definida como Chile central (32°55´S - 35°30´S). Según los criterios definidos en la estrategia nacional de glaciares de 2009, los glaciares de Chile se clasifican en 5 categorías: efluentes (366), de montaña (8.019), de valle (301), rocosos (2.831) y glaciaretes (12.597). El área de estudio incluye ejemplares de las 4 últimas categorías. Actualmente se esta a la espera de la nueva publicación del inventario nacional de glaciares.</p>
+                                    <p>El inventario Nacional de Glaciares dispone la georreferenciación y caracterización de la superficie glaciar del país vigente al año 2014. Este trabajo es elaborado por la Dirección General de Aguas (DGA) del Ministerio de obras públicas de Chile (MOP), específicamente por la unidad de glaciología y nieves. El inventario actual cuenta con un total de 24.114 registros a nivel nacional de los cuales 2.003 se sitúan en el área de estudio definida como Chile central (32°55´S - 35°30´S). Según los criterios definidos en la estrategia nacional de glaciares de 2009, los glaciares de Chile se clasifican en 5 categorías: efluentes (366), de montaña (8.019), de valle (301), rocosos (2.831) y glaciaretes (12.597). El área de estudio incluye ejemplares de las 4 últimas categorías. Actualmente se esta a la espera de la nueva publicación del inventario nacional de glaciares.</p>
                                 </div>
 
                                 <div className="botones">
@@ -97,8 +105,8 @@ export default function Home() {
                                 <div className="boton">
                                     <button className="button" onClick={() => setApp2Open(true)}>
                                         Mas Información
-                                        <img src="/assets/Arrow.svg" alt="arrow"/> 
-                                        </button>
+                                        <img src="/assets/Arrow.svg" alt="arrow" />
+                                    </button>
                                 </div>
                             </div>
 
@@ -165,7 +173,7 @@ export default function Home() {
                     <h2>Información del Proyecto</h2>
                 </div>
                 <div className="informacion">
-                    <p>La Plataforma de información glaciológica de Chile Central, se desarrolla en el marco de la memoria de título <span>“Implementación de un geoportal basado en estándares I.D.E. como aporte a la diseminación de información glaciar en los andes de chile central 32°55´s - 35°30´s”</span>, desarrollada por <span>Carlos Perez Oportus</span> como parte de los requisitos necesarios para la obtención del título de geógrafo.</p>
+                    <p>La Plataforma de información glaciológica de Chile Central, se desarrolla en el marco de la memoria de título <span>“Implementación de un geoportal basado en normas y estándares para el desarrollo de una I.D.E. como aporte a la difusión de información glacial en los andes de chile central 32°55´S - 35°30´S”</span>, desarrollada por <span>Carlos Pérez Oportus</span> como parte de los requisitos necesarios para la obtención del título de geógrafo.</p>
                     <p>La memoria de título forma parte de las investigaciones asociadas al proyecto <span>FONDECYT N°11160454: “Developing mechanistic understanding of the snowline‘s role on the differential climatic sensitivity along mountain glaciers”</span> desarrollado por el <span>Ph.D Alfonso Fernández R.</span></p>
                 </div>
 

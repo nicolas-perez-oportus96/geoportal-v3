@@ -9,7 +9,7 @@ export default function App1() {
             <div className="map">
                 <Leaflet />
             </div>
-            <a href="/home" className="float">
+            <a href="/" className="float">
                 <i className="fas fa-arrow-circle-left my-float"></i>
             </a>
             <img src="/assets/leyenda.jpeg" alt="leyenda" className="leyenda" />
