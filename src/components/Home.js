@@ -23,7 +23,9 @@ export default function Home() {
                                 <a href="#info">Sobre el proyecto</a>
                             </li>
                             <li>
-                                <a href="/servicios">Servicios de mapas web</a>
+                                <Link to="/servicios">
+                                    Servicios de mapas web
+                                </Link>
                             </li>
                             <li>
                                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_Qq53YisdwSBHU5CLuK9mX98Wax17xWu_15k7RVE9gky5Nw/viewform?usp=pp_url&entry.1571147561=Opci%C3%B3n+1" target="_blank" rel="noopener noreferrer">
